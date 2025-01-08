@@ -7,7 +7,8 @@ document.addEventListener("keydown", function (event) {
 function movePlayer(key) {
     var player = document.getElementsByClassName("player")[0];
 
-    var bottomMargin = parseInt(player.style.marginBottom || 0);
+    var container = document.getElementsByClassName("map-container")[0];
+
     var topMargin = parseInt(player.style.marginTop || 0);
     var leftMargin = parseInt(player.style.marginLeft || 0);
     var rightMargin = parseInt(player.style.marginRight) || 0;

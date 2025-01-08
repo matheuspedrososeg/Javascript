@@ -5,12 +5,17 @@ for (let i = 0; i < array.length; i++) {
     array[i].addEventListener("click", function () {
         var buttonInnerHTML = this.innerHTML;
 
-        switch (buttonInnerHTML) {
+        makeSound(buttonInnerHTML);
+
+    });
+
+    const makeSound = (button) => {
+        switch (button) {
             case "w":
                 var audio = new Audio("sounds/tom-1.mp3");
                 audio.play();
                 break;
-
+    
             case "a":
                 var audio = new Audio("sounds/tom-2.mp3");
                 audio.play();
@@ -36,14 +41,15 @@ for (let i = 0; i < array.length; i++) {
                 audio.play();
                 break;
         }
+    }
 
-
-    });
     document.addEventListener("keydown", function (event) {
         playSound(event.key);
+
+        buttonAnimation(event.key);
     });
     
-    function playSound(key) {
+    const playSound = (key) => {
         switch (key) {
             case "w":
                 var audio = new Audio("sounds/tom-1.mp3");
@@ -80,6 +86,17 @@ for (let i = 0; i < array.length; i++) {
                 audio.play();
                 break;
         }
+    }
+
+    function buttonAnimation(pressedKey) {
+        var activeButton = document.querySelector("." + pressedKey);
+
+        activeButton.classList.add("pressed");
+        setTimeout(function() {
+            activeButton.classList.remove("pressed");
+        }, 300)
+
+
     }
 }
 
