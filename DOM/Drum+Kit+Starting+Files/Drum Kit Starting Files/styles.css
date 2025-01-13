@@ -60,11 +60,6 @@ footer {
   opacity: 0.5;
   animation-duration: 3.3s ease;
 }
-
-.pressed::after {
-  opacity: 0;
-}
-
 .red {
   color: red;
 }
