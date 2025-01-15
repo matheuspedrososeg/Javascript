@@ -1,0 +1,19 @@
+  <%- include("partials/header.ejs"); %>
+  <script src="../index.js"></script>
+  <title>Essays</title>
+  
+  <h1>Essays</h1>
+  
+  <p>If you´re not sure which to read, try <a href="#">How to do great work</a>, <a href="#">Having kids</a>, or <a href="#">How to lose time and memory</a></p>
+  
+  <a href="/create" class="create-button">Create a blog post.</a>
+  
+  <% if (blogs.length > 0) { %>
+      <% blogs.forEach(blog => { %>
+        <div class="blog-post">
+          <h2><%= blog.author %></h2>
+        </div>
+      <% }); %>
+    <% } else { %>
+      <p class="no-blogs">No blog posts available yet!</p>
+    <% } %>
